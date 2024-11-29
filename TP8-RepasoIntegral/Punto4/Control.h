@@ -50,9 +50,9 @@ string Control::getDescripcion() const
 void Control::escribirInfo() const
 {
     cout << "\n Fecha Control: " << this->fechaControl
-         << "\n Descripción: " << this->descripcion
+         << "\n Descripcion: " << this->descripcion
          << "\n Monto: $" << this->monto
-         << "\n Fecha Próximo Control: " << this->fechaProximoControl << endl;
+         << "\n Fecha Proximo Control: " << this->fechaProximoControl << endl;
 }
 Control::~Control()
 {

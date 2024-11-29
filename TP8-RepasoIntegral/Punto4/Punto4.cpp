@@ -9,42 +9,30 @@
 
 
 int main() {
-    // Crear sucursal
+
     Sucursal sucursal(1, "Av.gobernador 123");
-    // Registrar clientes
-    sucursal.registrarCliente(101, "Juan Perez", "juan.perez@mail.com");
-    sucursal.registrarCliente(102, "Maria Lopez", "maria.lopez@mail.com");
+      // Crear clientes
+    Cliente* cliente1 = new Cliente(101, "Juan Perez", "juan.perez@mail.com");
+    Cliente* cliente2 = new Cliente(102, "Maria Lopez", "maria.lopez@mail.com");
 
-    // Registrar mascotas para el cliente 101
-    Cliente cliente1(101, "Juan Perez", "juan.perez@mail.com");
-    cliente1.registrarMascota("Firulais", "Golden Retriever", Fecha(2020, 5, 12), "", false);
-    cliente1.registrarMascota("Coco", "Guacamayo", Fecha(2021, 8, 4), "Ave tropical colorida", true);
-    cout << "Mascotas registradas para Juan Perez.\n";
+     // Registrar clientes en la sucursal
+    sucursal.agregarCliente(cliente1);
+    sucursal.agregarCliente(cliente2);
 
-       // Registrar controles para las mascotas
-     Mascota* firulais = new MascotaTradicional("Firulais", "Golden Retriever", Fecha(2020, 5, 12));
-    firulais->registrarControl("Control general", 50.0, Fecha(2024, 12, 1), Fecha(2024, 11, 15));
-
-    Mascota* coco = new MascotaExotica("Coco", "Guacamayo", Fecha(2021, 8, 4), "Ave tropical colorida");
-    coco->registrarControl("Vacuna exótica", 100.0, Fecha(2024, 11, 30), Fecha(2024, 11, 10));
-
-
-    // Calcular montos
-    double montoMesJuan = cliente1.calcularMontoMes(11, 2024);
-    cout << "Monto total para Juan en noviembre de 2024: $" << montoMesJuan << endl;
-
+     // Registrar controles para las mascotas de cliente1
+    cliente1->registrarMascota("Firulais", "Golden Retriever", Fecha(2020, 5, 12), "", false);
+    cliente1->registrarMascota("Coco", "Guacamayo", Fecha(2021, 8, 4), "Ave tropical colorida", true);
+    cliente1->registrarControlEnMascota("Firulais", "Vacuna anual", 500.0, Fecha(2024, 12, 10), Fecha(2024, 11, 27));
+    cliente1->registrarControlEnMascota("Coco", "Revision general", 800.0, Fecha(2025, 1, 15), Fecha(2024, 11, 27));
     
-    cout << "\nMascotas con controles proximos de Juan:\n";
-    cliente1.listarMascotasConControlProx();
+    // Mostrar información
+    cout << "Mascotas registradas para " << cliente1->getNombre() << ".\n";
+    cliente1->listarMascotasConControlProx();
 
-  
-    sucursal.generarResumen(11, 2024);
+    sucursal.generarResumen(11,2024);
+   
 
-    
-    delete firulais;
-    delete coco;
-
-   return 0;
- 
-
+   delete cliente1;
+   delete cliente2;
+    return 0;
  }

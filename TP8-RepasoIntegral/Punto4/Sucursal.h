@@ -11,7 +11,7 @@ private:
     vector<Cliente*> clientes;
 public:
     Sucursal(int cod, string direc);
-    void registrarCliente(int codig, string nomb, string correo);
+    void agregarCliente(Cliente *cliente);
       void generarResumen(int mes, int anio) const;
 
     ~Sucursal();
@@ -22,8 +22,8 @@ Sucursal::Sucursal(int cod, string direc)
     this->codigo=cod;
     this->direccion=direc;
 }
-void Sucursal:: registrarCliente(int codig, string nomb, string correo){
-        Cliente* cliente= new Cliente(codig, nomb, correo);
+void Sucursal:: agregarCliente(Cliente *cliente){
+       
         clientes.push_back(cliente);
     }
      void Sucursal::generarResumen(int mes, int anio) const {
@@ -34,14 +34,10 @@ void Sucursal:: registrarCliente(int codig, string nomb, string correo){
             totalRecaudado += montoCliente;
             cout << "\nCliente: " << cliente->getNombre() << ",\n Monto: $" << montoCliente << endl;
         }
-        cout << "Total Recaudado: $" << totalRecaudado << endl;
+        cout << "\nTotal RECAUDADO: $" << totalRecaudado << endl;
     }
 Sucursal::~Sucursal()
 {
-     for (Cliente *cliente : clientes) {
-            delete cliente;
-        }
-        clientes.clear();
 }
 
 

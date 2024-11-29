@@ -23,14 +23,14 @@ MascotaExotica::MascotaExotica(string nombre, string raza, Fecha fechaNac, strin
 }
 double MascotaExotica::calcularMontoControl(Control *control) const
 {
-
-    return control->getMonto() * 1.10; // Incremento del 10%
+    double total= control->getMonto() * 1.10;
+    return total; // Incremento del 10%
 }
 
 void MascotaExotica::mostrarInfo() const
 {
     Mascota::mostrarInfo();
-    cout << "Descripción: " << this->descripcion << endl;
+    cout << "Descripcion: " << this->descripcion << endl;
 }
 MascotaExotica::~MascotaExotica()
 {

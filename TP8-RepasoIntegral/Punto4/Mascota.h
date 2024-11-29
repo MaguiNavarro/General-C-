@@ -15,6 +15,7 @@ protected:
 
 public:
     Mascota(string nombre, string raza, Fecha fechaNac);
+    string getNombre();
     void registrarControl(string desc, double monto, Fecha proxControl, Fecha control);
     double calcularMontoMes(int mes, int anio) const;
     virtual double calcularMontoControl(Control *control) const;
@@ -28,6 +29,9 @@ Mascota::Mascota(string nombre, string raza, Fecha fechaNac)
     this->Nombre = nombre;
     this->Raza = raza;
     this->fechaNacimiento = fechaNac;
+}
+string  Mascota::getNombre(){
+    return Nombre;
 }
 void Mascota::registrarControl(string desc, double monto, Fecha proxControl, Fecha Fcontrol)
 {
@@ -43,7 +47,7 @@ double Mascota::calcularMontoMes(int mes, int anio) const
 
         if (control->getFechaControl().getMes() == mes && control->getFechaControl().getAnio() == anio)
         {
-            total += calcularMontoControl(control);
+            total =total + calcularMontoControl(control);
         }
     }
     return total;
