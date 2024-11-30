@@ -23,7 +23,7 @@ public:
         return -1;
     }
 
-    void avanzar() override {
+    void avanzar() override {   //RETROCEDER SE LLAMARIA LA FN
        --this->posicionActual ;
     }
 };

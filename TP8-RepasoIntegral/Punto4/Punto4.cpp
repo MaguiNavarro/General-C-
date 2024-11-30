@@ -15,7 +15,7 @@ int main() {
     Cliente* cliente1 = new Cliente(101, "Juan Perez", "juan.perez@mail.com");
     Cliente* cliente2 = new Cliente(102, "Maria Lopez", "maria.lopez@mail.com");
 
-     // Registrar clientes en la sucursal
+   
     sucursal.agregarCliente(cliente1);
     sucursal.agregarCliente(cliente2);
 
@@ -25,7 +25,7 @@ int main() {
     cliente1->registrarControlEnMascota("Firulais", "Vacuna anual", 500.0, Fecha(2024, 12, 10), Fecha(2024, 11, 27));
     cliente1->registrarControlEnMascota("Coco", "Revision general", 800.0, Fecha(2025, 1, 15), Fecha(2024, 11, 27));
     
-    // Mostrar información
+   
     cout << "Mascotas registradas para " << cliente1->getNombre() << ".\n";
     cliente1->listarMascotasConControlProx();
 
